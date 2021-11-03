@@ -1,8 +1,10 @@
 {
   "canisters": {
     "rust_hello": {
-      "main": "src/rust_hello/main.mo",
-      "type": "motoko"
+      "build": "cargo build --target wasm32-unknown-unknown --package rust_hello --release",
+      "candid": "src/rust_hello/src/rust_hello.did",
+      "wasm": "target/wasm32-unknown-unknown/release/rust_hello.wasm",
+      "type": "custom"
     },
     "rust_hello_assets": {
       "dependencies": [
@@ -16,12 +18,6 @@
         "dist/rust_hello_assets/"
       ],
       "type": "assets"
-    }
-  },
-  "defaults": {
-    "build": {
-      "args": "",
-      "packtool": ""
     }
   },
   "dfx": "0.8.1",
